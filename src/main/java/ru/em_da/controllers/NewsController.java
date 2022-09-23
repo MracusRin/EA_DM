@@ -1,15 +1,14 @@
-package ru.em_da.controller;
+package ru.em_da.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
-public class MainController {
+@RequestMapping("/news")
+public class NewsController {
     @GetMapping
-    public String index() {
-        return "index";
+    public String news(){
+        return "news/news";
     }
-
 }
