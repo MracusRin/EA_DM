@@ -1,7 +1,7 @@
-package ru.em_da.services;
+package ru.ea_dm.services;
 
 import org.springframework.stereotype.Service;
-import ru.em_da.models.Product;
+import ru.ea_dm.models.Product;
 
 import java.util.ArrayList;
 import java.util.List;

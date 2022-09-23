@@ -1,13 +1,13 @@
-package ru.em_da;
+package ru.ea_dm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EmDaApplication {
+public class EaDmApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EmDaApplication.class, args);
+		SpringApplication.run(EaDmApplication.class, args);
 	}
 
 }

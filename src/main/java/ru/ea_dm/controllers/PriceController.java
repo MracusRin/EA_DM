@@ -1,11 +1,11 @@
-package ru.em_da.controllers;
+package ru.ea_dm.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.em_da.models.Product;
-import ru.em_da.services.PriceService;
+import ru.ea_dm.models.Product;
+import ru.ea_dm.services.PriceService;
 
 @Controller
 @RequiredArgsConstructor

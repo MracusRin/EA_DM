@@ -1,4 +1,4 @@
-package ru.em_da.models;
+package ru.ea_dm.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

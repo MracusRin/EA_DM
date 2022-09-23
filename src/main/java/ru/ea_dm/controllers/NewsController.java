@@ -1,4 +1,4 @@
-package ru.em_da.controllers;
+package ru.ea_dm.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
