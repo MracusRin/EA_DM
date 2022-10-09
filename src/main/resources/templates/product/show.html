@@ -6,14 +6,14 @@
 </head>
 <body>
 
-<p th:text="${product.getId()}"></p>
+<p th:text="${product.getProductId()}"></p>
 <p th:text="${product.getTitle()}"></p>
 <p th:text="${product.getDescription()}"></p>
 <p th:text="${product.getPrice()}"></p>
 
 <hr>
 
-<form th:method="DELETE" th:action="@{/price/{id} (id = ${product.getId()})}">
+<form th:method="DELETE" th:action="@{/product/{id} (id = ${product.getProductId()})}">
     <button type="submit">Удалить</button>
 </form>
 
