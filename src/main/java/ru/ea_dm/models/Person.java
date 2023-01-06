@@ -24,6 +24,9 @@ public class Person {
     @Column(name = "created_at")
     private LocalDateTime created_at;
 
+    @Column(name = "role")
+    private String role;
+
     public Person() {}
 
     public Person(String username, String email, String password, LocalDateTime created_at) {
@@ -71,5 +74,13 @@ public class Person {
 
     public void setCreated_at(LocalDateTime created_at) {
         this.created_at = created_at;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

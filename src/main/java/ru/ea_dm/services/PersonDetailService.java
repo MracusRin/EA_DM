@@ -6,22 +6,23 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ru.ea_dm.models.Person;
+import ru.ea_dm.repositories.PersonRepository;
 import ru.ea_dm.security.PersonDetails;
 
 import java.util.Optional;
 
 @Service
 public class PersonDetailService implements UserDetailsService {
-    private final PersonService personService;
+    private final PersonRepository personRepository;
 
     @Autowired
-    public PersonDetailService(PersonService personService) {
-        this.personService = personService;
+    public PersonDetailService(PersonRepository personRepository) {
+        this.personRepository = personRepository;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<Person> person = personService.findByUsername(username);
+        Optional<Person> person = personRepository.findByUsername(username);
         if (person.isEmpty()) {
             throw new UsernameNotFoundException("Пользователь не найден");
         } else {

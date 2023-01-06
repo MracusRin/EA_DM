@@ -42,7 +42,7 @@ public class AuthController {
         if (bindingResult.hasErrors()) {
             return "auth/registration";
         } else {
-            personService.registration(person);
+            personService.register(person);
             return "/auth/login";
         }
     }
