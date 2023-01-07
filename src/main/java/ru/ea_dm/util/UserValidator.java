@@ -4,27 +4,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
-import ru.ea_dm.models.Person;
-import ru.ea_dm.services.PersonService;
+import ru.ea_dm.models.User;
+import ru.ea_dm.services.UserService;
 
 @Component
-public class PersonValidator implements Validator {
-    private final PersonService personService;
+public class UserValidator implements Validator {
+    private final UserService userService;
 
     @Autowired
-    public PersonValidator(PersonService personService) {
-        this.personService = personService;
+    public UserValidator(UserService userService) {
+        this.userService = userService;
     }
 
     @Override
     public boolean supports(Class<?> clazz) {
-        return Person.class.equals(clazz);
+        return User.class.equals(clazz);
     }
 
     @Override
     public void validate(Object target, Errors errors) {
-        Person person = (Person) target;
-        if (personService.findByUsername(person.getUsername()).isPresent()) {
+        User user = (User) target;
+        if (userService.findByUsername(user.getUsername()).isPresent()) {
             errors.rejectValue("username", "", "Пользователь с таким именем уже существует");
         }
     }

@@ -7,22 +7,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.ea_dm.models.Person;
-import ru.ea_dm.services.PersonService;
-import ru.ea_dm.util.PersonValidator;
+import ru.ea_dm.models.User;
+import ru.ea_dm.services.UserService;
+import ru.ea_dm.util.UserValidator;
 
 import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/auth")
 public class AuthController {
-    private final PersonService personService;
-    private final PersonValidator personValidator;
+    private final UserService userService;
+    private final UserValidator userValidator;
 
     @Autowired
-    public AuthController(PersonService personService, PersonValidator personValidator) {
-        this.personService = personService;
-        this.personValidator = personValidator;
+    public AuthController(UserService userService, UserValidator userValidator) {
+        this.userService = userService;
+        this.userValidator = userValidator;
     }
 
     @GetMapping("/login")
@@ -31,18 +31,18 @@ public class AuthController {
     }
 
     @GetMapping("/registration")
-    public String registrationPage(@ModelAttribute("person") Person person) {
+    public String registrationPage(@ModelAttribute("user") User user) {
         return "auth/registration";
     }
 
     @PostMapping("/registration")
-    public String performRegistration(@ModelAttribute("person") @Valid Person person,
+    public String performRegistration(@ModelAttribute("user") @Valid User user,
                                       BindingResult bindingResult) {
-        personValidator.validate(person, bindingResult);
+        userValidator.validate(user, bindingResult);
         if (bindingResult.hasErrors()) {
             return "auth/registration";
         } else {
-            personService.register(person);
+            userService.register(user);
             return "/auth/login";
         }
     }
