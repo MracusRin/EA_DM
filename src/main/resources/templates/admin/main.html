@@ -9,6 +9,10 @@
 
 <h2>Admin Page</h2>
 
+<form th:method="POST" th:action="@{/auth/logout}">
+    <input type="submit" value="Logout">
+</form>
+
 <div th:insert="/blocks/footer :: footer"></div>
 </body>
 </html>
