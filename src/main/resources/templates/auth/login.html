@@ -5,6 +5,8 @@
     <title>Login page</title>
 </head>
 <body>
+<div th:insert="/blocks/header :: header"></div>
+
 <h2>Login Page</h2>
 
 <form name="login-form" method="post" action="/process_login">
@@ -22,5 +24,7 @@
         <p>Не правильное имя или пароль</p>
     </div>
 </form>
+
+<div th:insert="/blocks/footer :: footer"></div>
 </body>
 </html>

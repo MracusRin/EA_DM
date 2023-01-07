@@ -5,6 +5,7 @@
     <title>Show</title>
 </head>
 <body>
+<div th:insert="/blocks/header :: header"></div>
 
 <p th:text="${product.getProductId()}"></p>
 <p th:text="${product.getTitle()}"></p>
@@ -18,5 +19,6 @@
     <button type="submit">Удалить</button>
 </form>
 
+<div th:insert="/blocks/footer :: footer"></div>
 </body>
 </html>
