@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 import ru.ea_dm.models.Product;
 import ru.ea_dm.repositories.ProductRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -18,8 +20,13 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+    public Optional<Product> findByTitle(String title) {
+        return productRepository.findByTitle(title);
+    }
+
     public void save(Product product) {
         log.info("Saving new {}", product);
+        product.setCreatedAt(LocalDateTime.now());
         productRepository.save(product);
     }
 

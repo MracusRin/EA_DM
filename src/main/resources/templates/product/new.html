@@ -5,16 +5,23 @@
     <title>Create</title>
 </head>
 <body>
+<h2>Creating product page</h2>
 
 <form th:method="POST" th:action="@{/product}" th:object="${product}">
     <label for="title">Название</label>
     <input type="text" th:field="*{title}" id="title">
+    <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{title}">Show title error</div>
+    <br>
 
     <label for="description">Описание</label>
     <input type="text" th:field="*{description}" id="description">
+    <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{description}">Show description error</div>
+    <br>
 
     <label for="price">Цена</label>
     <input type="text" th:field="*{price}" id="price">
+    <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{price}">Show price error</div>
+    <br>
 
     <button type="submit">Добавить</button>
 </form>

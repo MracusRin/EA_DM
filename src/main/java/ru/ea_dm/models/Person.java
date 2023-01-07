@@ -1,24 +1,31 @@
 package ru.ea_dm.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "person")
 public class Person {
-    //TODO: валидация пользователя
     @Id
     @Column(name = "person_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int personId;
 
     @Column(name = "username")
+    @NotEmpty(message = "Имя пользователя не может быть пустым")
+    @Size(min = 3, max = 30, message = "Имя пользователя должно содержать от 3 до 30 символов")
     private String username;
 
     @Column(name = "email")
+    @Email(message = "Email введен не корректно")
     private String email;
 
     @Column(name = "password")
+    @Size(min = 3, message = "Пароль должен содержать как минимум 3 символа")
+    @NotEmpty(message = "Пароль не может быть пустым")
     private String password;
 
     @Column(name = "created_at")

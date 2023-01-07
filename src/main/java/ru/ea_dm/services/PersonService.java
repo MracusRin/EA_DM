@@ -1,5 +1,6 @@
 package ru.ea_dm.services;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
+@Slf4j
 public class PersonService {
     private final PersonRepository personRepository;
     private final PasswordEncoder passwordEncoder;
@@ -31,6 +33,7 @@ public class PersonService {
         person.setCreated_at(LocalDateTime.now());
         person.setPassword(passwordEncoder.encode(person.getPassword()));
         person.setRole("ROLE_USER");
+        log.info("Saving new user: {}", person.getUsername());
         personRepository.save(person);
     }
 }
