@@ -1,0 +1,60 @@
+/* reset browser style */
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.logo {
+    font-size:42px;
+    font-family: 'KapelkaNewW03-Regular';
+    color: #292929;
+    text-decoration: none;
+}
+
+.h_container {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10% 0 10%;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 100%;
+    font-family: 'Orelega One';
+    font-size: 20px;
+}
+
+ul>li {
+    padding-left: 30px;
+}
+
+.nav_link {
+    color: #292929;
+    text-decoration: none;
+}
+ul>.admin {
+    padding-left: 5px;
+}

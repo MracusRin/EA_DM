@@ -1,13 +1,21 @@
 <div th:fragment="header">
-  <span>Header</span>
-  <a th:href="@{/}">Главная</a>
-  <a th:href="@{/news}">Новости</a>
-  <a th:href="@{/product}">Прайс</a>
-  <a th:href="@{/about}">О нас</a>
-
-<!--  TODO: Админка, УДАЛТЬ ссылку по после окончания разработки!-->
-  <a th:href="@{/admin/main}" style="color: red">(админка)</a>
-
-  <hr>
+  <div class="h_container">
+    <div class="h_left">
+      <p><a class="logo" title="На главную" th:href="@{/}">Ekaterina Aleekseenko</a></p>
+    </div>
+    <div class="h_right">
+      <ul class="nav">
+        <li><a class="nav_link" th:href="@{/product}">Услуги</a></li>
+        <li><a class="nav_link" th:href="@{/news}">Акции</a></li>
+        <li><a class="nav_link" th:href="@{/about}">О нас</a></li>
+        <li><a class="nav_link" th:href="@{/product}">Продукция</a></li>
+        <li class="admin">
+          <!--  TODO: Админка, УДАЛТЬ ссылку по после окончания разработки!-->
+          <a class="admin" th:href="@{/admin/main}" style="color: red">(админка)</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+<!--  <hr>-->
   <br>
 </div>
