@@ -6,7 +6,7 @@
     <link th:href="@{/css/main.css}" rel="stylesheet" />
 </head>
 <body>
-<div th:insert="/blocks/header :: header"></div>
+<div class="header" th:insert="/blocks/header :: header"></div>
 
 <p th:text="${product.getProductId()}"></p>
 <p th:text="${product.getTitle()}"></p>

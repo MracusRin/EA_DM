@@ -1,11 +1,10 @@
-<div th:fragment="header">
-  <div class="h_container">
+<div class="h_container" th:fragment="header">
     <div class="h_left">
       <p><a class="logo" title="На главную" th:href="@{/}">Ekaterina Aleekseenko</a></p>
     </div>
     <div class="h_right">
       <ul class="nav">
-        <li><a class="nav_link" th:href="@{/product}">Услуги</a></li>
+        <li><a class="nav_link" th:href="@{/#}">Услуги</a></li>
         <li><a class="nav_link" th:href="@{/news}">Акции</a></li>
         <li><a class="nav_link" th:href="@{/about}">О нас</a></li>
         <li><a class="nav_link" th:href="@{/product}">Продукция</a></li>
@@ -15,7 +14,4 @@
         </li>
       </ul>
     </div>
-  </div>
-<!--  <hr>-->
-  <br>
 </div>
