@@ -29,6 +29,9 @@
             Price
         </td>
         <td>
+            <input type="button" onclick="alert('Заглушка для кнопки редактирования товара')" value="Изменить">
+        </td>
+        <td>
             <form th:method="DELETE" th:action="@{/product/{id} (id = ${product.getProductId()})}">
                 <button type="submit">Удалить</button>
             </form>
