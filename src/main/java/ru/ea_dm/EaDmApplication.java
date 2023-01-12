@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class EaDmApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(EaDmApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(EaDmApplication.class, args);
+    }
 
 }

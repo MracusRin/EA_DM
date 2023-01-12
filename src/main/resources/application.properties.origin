@@ -1,0 +1,13 @@
+spring.mvc.hiddenmethod.filter.enabled= true
+spring.datasource.url=jdbc:postgresql://YOUR_HOST:5432/DB_NAME
+spring.datasource.username=USER
+spring.datasource.password=PASSWORD
+# auto generation sql query
+spring.jpa.hibernate.ddl-auto=update
+# shou sql query in console
+spring.jpa.show-sql=true
+
+spring.servlet.multipart.max-file-size=20MB
+spring.servlet.multipart.max-request-size=20MB
+
+upload.productImage.path=src/main/resources/static/img
