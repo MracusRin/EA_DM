@@ -25,11 +25,24 @@
         <td>Цена</td>
         <td><p th:text="${product.getPrice()} + ' руб'" id="price">Цена</p></td>
     </tr>
+    <tr>
+        <td>Дата добавления</td>
+        <td><p th:text="${product.getCreatedAt()}" id="created_at">Дата добавления</p></td>
+    </tr>
 </table>
+
 
 <br>
 <img th:if="${!product.getImages().isEmpty()}"
      th:src="'/attachment/products/' + ${product.getImages().get(0).getTitle()}">
+
+<hr>
+
+<form th:method="DELETE" th:action="@{/admin/products/{id} (id = ${product.getProductId()})}">
+    <button type="submit">Удалить</button>
+</form>
+
+<input type="button" onclick="alert('Заглушка для кнопки редактирования товара')" value="Изменить">
 
 <div th:insert="blocks/footer :: footer"></div>
 </body>
