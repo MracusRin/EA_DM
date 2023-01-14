@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Show</title>
-    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
 </head>
 <body>
-<div class="header" th:insert="/blocks/header :: header"></div>
+<div class="header" th:insert="blocks/header :: header"></div>
 
 <p th:text="${product.getProductId()}" id="id">id</p>
 <p th:text="${product.getTitle()}" id="title">Название</p>
@@ -15,16 +15,16 @@
 <p th:text="${product.getCreatedAt()}" id="created_at">Дата добавления</p>
 <br>
 <img th:if="${!product.getImages().isEmpty()}"
-     th:src="'/img/product/' + ${product.getImages().get(0).getTitle()}">
+     th:src="'/attachment/products/' + ${product.getImages().get(0).getTitle()}">
 
 <hr>
 
-<form th:method="DELETE" th:action="@{/product/{id} (id = ${product.getProductId()})}">
+<form th:method="DELETE" th:action="@{/products/{id} (id = ${product.getProductId()})}">
     <button type="submit">Удалить</button>
 </form>
 
 <input type="button" onclick="alert('Заглушка для кнопки редактирования товара')" value="Изменить">
 
-<div th:insert="/blocks/footer :: footer"></div>
+<div th:insert="blocks/footer :: footer"></div>
 </body>
 </html>

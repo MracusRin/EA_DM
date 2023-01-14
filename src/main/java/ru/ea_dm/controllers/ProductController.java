@@ -16,7 +16,7 @@ import java.io.IOException;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/product")
+@RequestMapping("/products")
 public class ProductController {
     private final ProductService productService;
     private final ProductValidator productValidator;
@@ -25,12 +25,12 @@ public class ProductController {
     @GetMapping
     public String product(Model model) {
         model.addAttribute("products", productService.findAll());
-        return "product/product";
+        return "products/product";
     }
 
     @GetMapping("/new")
     public String createPage(@ModelAttribute("product") Product product) {
-        return "product/new";
+        return "products/new";
     }
 
     @PostMapping
@@ -39,30 +39,30 @@ public class ProductController {
                          BindingResult bindingResult) throws IOException {
         productValidator.validate(product, bindingResult);
         if (bindingResult.hasErrors()) {
-            return "product/new";
+            return "products/new";
         } else {
             productService.save(product);
             imageService.save(image, product);
-            return "redirect:/product";
+            return "redirect:/products";
         }
     }
 
     @GetMapping("/{id}")
     public String showPage(@PathVariable("id") Long id, Model model) {
         model.addAttribute("product", productService.findById(id).get());
-        return "product/show";
+        return "products/show";
     }
 
     @GetMapping("/{id}/edit")
     public String updatePage(@PathVariable("id") Long id, Model model) {
         model.addAttribute("product", productService.findById(id).get());
-        return "product/edit";
+        return "products/edit";
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") Long id) {
         productService.delete(id);
-        return "redirect:/product";
+        return "redirect:/products";
     }
 
 }

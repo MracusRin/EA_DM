@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin Page</title>
-    <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
 </head>
 <body>
-<div class="header" th:insert="/blocks/header :: header"></div>
+<div class="header" th:insert="blocks/header :: header"></div>
 
 <h2>Admin Page</h2>
 
@@ -14,6 +14,6 @@
     <input type="submit" value="Logout">
 </form>
 
-<div th:insert="/blocks/footer :: footer"></div>
+<div th:insert="blocks/footer :: footer"></div>
 </body>
 </html>

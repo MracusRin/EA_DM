@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Main</title>
-    <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
 </head>
 <body>
-<div class="header" th:insert="/blocks/header :: header"></div>
+<header class="header" th:insert="blocks/header :: header"></header>
 
 <h1>Hello Main</h1>
 
-<div th:insert="/blocks/footer :: footer"></div>
+<footer th:insert="blocks/footer :: footer"></footer>
 </body>
 </html>

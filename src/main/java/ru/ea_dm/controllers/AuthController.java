@@ -43,7 +43,7 @@ public class AuthController {
             return "auth/registration";
         } else {
             userService.register(user);
-            return "/auth/login";
+            return "auth/login";
         }
     }
 }

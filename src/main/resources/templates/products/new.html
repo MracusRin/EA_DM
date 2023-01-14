@@ -2,15 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Edit</title>
-    <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <title>Create</title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
 </head>
 <body>
-<div th:insert="blocks/header :: header"></div>
+<div class="header" th:insert="blocks/header :: header"></div>
 
 <h2>Creating product page</h2>
 
-<form th:method="PATCH" th:action="@{/product/{id} (id = ${product.getProductId()})}" th:object="${product}" enctype="multipart/form-data">
+<form th:method="POST" th:action="@{/products}" th:object="${product}" enctype="multipart/form-data">
     <label for="title">Название</label>
     <input type="text" th:field="*{title}" id="title">
     <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{title}">Show title error</div>
@@ -26,13 +26,14 @@
     <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{price}">Show price error</div>
     <br>
 
-
-
-
-
+    <label for="active">В продаже</label>
+    <input type="checkbox" name="active" th:checked="*{active}" id="active">
     <br>
 
-    <button type="submit">Изменить</button>
+    <input type="file" name="image" accept="image/*">
+    <br>
+
+    <button type="submit">Добавить</button>
 </form>
 
 <div th:insert="blocks/footer :: footer"></div>

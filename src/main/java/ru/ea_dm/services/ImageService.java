@@ -25,9 +25,9 @@ public class ImageService {
     private final ImageRepository imageRepository;
     private final ProductRepository productRepository;
 
-    @Value("${upload.productImage.path}")
+    @Value("${upload.image.path}")
     private String uploadPath;
-    private final String imageDir = "product";
+    private final String imageDir = "products";
 
     @Transactional
     public void save(MultipartFile file, Product product) throws IOException {

@@ -10,6 +10,6 @@ public class AdminController {
 
     @GetMapping("/main")
     public String index() {
-        return "/admin/main";
+        return "admin/main";
     }
 }
