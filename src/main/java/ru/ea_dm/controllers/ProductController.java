@@ -22,7 +22,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public String showPage(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("product", productService.findById(id).get());
+        model.addAttribute("product", productService.findById(id));
         return "products/show";
     }
 

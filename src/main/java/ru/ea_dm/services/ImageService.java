@@ -70,7 +70,7 @@ public class ImageService {
         try {
             Files.delete(path);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            log.error("Image {} not found. Nothing to delete", image.getTitle());
         }
     }
 }

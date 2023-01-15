@@ -49,13 +49,13 @@ public class AdminProductController {
 
     @GetMapping("/{id}")
     public String showPage(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("product", productService.findById(id).get());
+        model.addAttribute("product", productService.findById(id));
         return "admin/products/show";
     }
 
     @GetMapping("/{id}/edit")
     public String updatePage(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("product", productService.findById(id).get());
+        model.addAttribute("product", productService.findById(id));
         return "admin/products/edit";
     }
 

@@ -35,7 +35,7 @@ public class User {
     private String password;
 
     @Column(name = "created_at")
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
 
     @Column(name = "active")
     private boolean active;
@@ -44,5 +44,10 @@ public class User {
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles = new HashSet<>();
+
+    @PrePersist
+    private void init() {
+        createdAt = LocalDateTime.now();
+    }
 
 }

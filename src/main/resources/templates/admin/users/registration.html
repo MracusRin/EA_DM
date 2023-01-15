@@ -2,21 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Admin Page</title>
+    <title>Registration new user</title>
     <link th:href="@{/styles/main.css}" rel="stylesheet"/>
 </head>
 <body>
 <div class="header" th:insert="blocks/header :: header"></div>
 
-<h1>Admin page</h1>
+<h1>Registration user page</h1>
 
-<a th:href="@{/admin/products}">Продукция</a>
-<br>
-<a th:href="@{/admin/users}">Пользователи</a>
+<form th:method="POST" th:action="@{/admin/users}" th:object="${user}">
 
-<hr>
-<form th:method="POST" th:action="@{/auth/logout}">
-    <input type="submit" value="Logout">
+    <div th:insert="blocks/user_form :: user_form"></div>
+
+    <input type="submit" value="Зарегистрировать">
 </form>
 
 <div th:insert="blocks/footer :: footer"></div>
