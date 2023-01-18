@@ -50,4 +50,8 @@ public class User {
         createdAt = LocalDateTime.now();
     }
 
+    public boolean hasRole(Role role) {
+        return this.roles.contains(role);
+    }
+
 }

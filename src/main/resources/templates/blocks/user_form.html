@@ -16,10 +16,14 @@
     <br>
 
     <label for="role">Роль</label>
-    <select th:object="${user}" th:field="*{roles}" id="role">
-        <option th:each="role : ${roles}" th:value="${role.value}"
-                th:text="${role.key}"></option>
-    </select>
+    <input th:type="checkbox" th:name="roles"
+           th:each="role : ${roles}"
+           th:checked="${user.hasRole(role)}"
+           th:text="${role.getRoleName()}"
+           th:value="${role.name()}"
+           th:field="*{roles}"
+           id="role"
+    />
     <br>
 
     <label for="active">Активность</label>

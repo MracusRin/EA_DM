@@ -26,8 +26,9 @@ public class AdminUserController {
     }
 
     @GetMapping("/registration")
-    public String registrationPage(@ModelAttribute("user") User user, Model model) {
-        model.addAttribute("roles", Role.roles);
+    public String registrationPage(@ModelAttribute("user") User user,
+                                   Model model) {
+        model.addAttribute("roles", Role.values());
         return "admin/users/registration";
     }
 
@@ -37,7 +38,7 @@ public class AdminUserController {
                                BindingResult bindingResult) {
         userValidator.validate(user, bindingResult);
         if (bindingResult.hasErrors()) {
-            model.addAttribute("roles", Role.roles);
+            model.addAttribute("roles", Role.values());
             return "admin/users/registration";
         } else {
             userService.register(user);
@@ -46,19 +47,21 @@ public class AdminUserController {
     }
 
     @GetMapping("/{id}/edit")
-    public String editPage(@PathVariable("id") Long id, Model model) {
+    public String editPage(@PathVariable("id") Long id,
+                           Model model) {
         model.addAttribute("user", userService.findById(id));
-        model.addAttribute("roles", Role.roles);
+        model.addAttribute("roles", Role.values());
         return "admin/users/edit";
     }
 
     @PatchMapping("/{id}")
-    public String edit(Model model,
-                       @PathVariable("id") Long id,
-                       @ModelAttribute("user") @Valid User user,
-                       BindingResult bindingResult) {
+    public String edit(@ModelAttribute("user") @Valid User user,
+                       BindingResult bindingResult,
+                       Model model,
+                       @PathVariable("id") Long id) {
+        user.setUserId(id);
         if (bindingResult.hasErrors()) {
-            model.addAttribute("roles", Role.roles);
+            model.addAttribute("roles", Role.values());
             return "admin/users/edit";
         } else {
             userService.update(user, id);

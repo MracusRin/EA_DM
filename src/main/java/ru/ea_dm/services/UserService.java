@@ -6,10 +6,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.ea_dm.models.User;
-import ru.ea_dm.models.enums.Role;
 import ru.ea_dm.repositories.UserRepository;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,7 +50,6 @@ public class UserService {
     public void update(User updatedUser, Long id) {
         log.info("User {} UPDATED", updatedUser.getUsername());
         User user = userRepository.findById(id).get();
-        updatedUser.setUserId(id);
         updatedUser.setPassword(passwordEncoder.encode(updatedUser.getPassword()));
         updatedUser.setCreatedAt(user.getCreatedAt());
         userRepository.save(updatedUser);
