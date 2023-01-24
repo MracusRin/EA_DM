@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New discount</title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="header" th:insert="blocks/header :: header"></div>
+
+<h1>New discount</h1>
+
+<form th:method="POST" th:action="@{/admin/discounts}" th:object="${discount}">
+    <label for="title">Заголовок</label>
+    <input type="text" th:field="*{title}" id="title">
+    <br>
+
+    <label for="description">Описание</label>
+    <input type="text" th:field="*{description}" id="description">
+    <br>
+
+    <input type="submit" value="Сохранить">
+</form>
+
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

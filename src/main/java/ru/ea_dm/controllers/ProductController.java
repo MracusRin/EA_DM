@@ -15,9 +15,9 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping
-    public String product(Model model) {
+    public String products(Model model) {
         model.addAttribute("products", productService.findAll());
-        return "products/product";
+        return "products/products";
     }
 
     @GetMapping("/{id}")

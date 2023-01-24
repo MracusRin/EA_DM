@@ -34,3 +34,4 @@ build/
 application.properties
 /.jpb/
 /src/main/resources/static/images/attachment
+/src/main/resources/templates/syntax.html

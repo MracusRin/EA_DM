@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Discounts</title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="header" th:insert="blocks/header :: header"></div>
+
+<h1>Discounts</h1>
+
+<table th:unless="${discounts.isEmpty()}">
+    <tr th:each="discount : ${discounts}">
+        <td><b th:text="${discount.getTitle()}">Title</b></td>
+        <td><p th:text="${discount.getDescription()}">Description</p></td>
+    </tr>
+</table>
+<h3 th:if="${discounts.isEmpty()}">Акций пока нет</h3>
+<br>
+
+
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

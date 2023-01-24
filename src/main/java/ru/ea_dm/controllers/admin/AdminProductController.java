@@ -25,7 +25,7 @@ public class AdminProductController {
     @GetMapping
     public String product(Model model) {
         model.addAttribute("products", productService.findAll());
-        return "admin/products/product";
+        return "admin/products/products";
     }
 
     @GetMapping("/new")
