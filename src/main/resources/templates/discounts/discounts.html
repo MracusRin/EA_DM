@@ -14,11 +14,14 @@
     <tr th:each="discount : ${discounts}">
         <td><b th:text="${discount.getTitle()}">Title</b></td>
         <td><p th:text="${discount.getDescription()}">Description</p></td>
+        <td>
+            <p th:if="${discount.daysLeft} <= 5"
+               th:text="'Дней осталось: ' + ${discount.getDaysLeft()}">Days left</p>
+        </td>
     </tr>
 </table>
 <h3 th:if="${discounts.isEmpty()}">Акций пока нет</h3>
 <br>
-
 
 <div th:insert="blocks/footer :: footer"></div>
 </body>
