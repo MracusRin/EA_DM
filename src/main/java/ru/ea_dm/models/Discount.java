@@ -1,8 +1,11 @@
 package ru.ea_dm.models;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -14,9 +17,22 @@ public class Discount {
     private Long discountId;
 
     @Column(name = "title")
+    @NotEmpty(message = "Называние не может быть пустым")
     private String title;
 
     @Column(name = "description")
+    @NotEmpty(message = "Описание не может быть пустым")
     private String description;
+
+    @Column(name = "start_date")
+    @DateTimeFormat(pattern = "dd.MM.yyyy")
+    private LocalDate startDate;
+
+    @Column(name = "end_date")
+    @DateTimeFormat(pattern = "dd.MM.yyyy")
+    private LocalDate endDate;
+
+    @Transient
+    private Long daysLeft;
 
 }

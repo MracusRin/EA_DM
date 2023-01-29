@@ -15,7 +15,7 @@ public class DiscountController {
 
     @GetMapping
     public String discounts(Model model) {
-        model.addAttribute("discounts", discountService.findAll());
+        model.addAttribute("discounts", discountService.findAllActive());
         return "discounts/discounts";
     }
 }

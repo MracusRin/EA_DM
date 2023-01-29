@@ -1,0 +1,25 @@
+<div th:fragment="discount_form">
+
+  <label for="title">Заголовок</label>
+  <input type="text" th:field="*{title}" id="title">
+  <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{title}">Show error</div>
+  <br>
+
+  <label for="description">Описание</label>
+  <input type="text" th:field="*{description}" id="description">
+  <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{description}">Show error</div>
+  <br>
+
+  <label for="start_date">Дата начала акции</label>
+  <input type="text" th:field="*{startDate}" id="start_date">
+  <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{startDate}">Show error</div>
+  <br>
+
+  <label for="end_date">Дата окончания акции</label>
+  <input type="text" th:field="*{endDate}" id="end_date">
+  <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{endDate}">Show error</div>
+  <br>
+
+  <input type="submit" value="Сохранить">
+
+</div>

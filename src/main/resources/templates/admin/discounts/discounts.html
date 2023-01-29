@@ -11,9 +11,22 @@
 <h1>Admin discounts</h1>
 
 <table th:unless="${discounts.isEmpty()}">
+    <tr>
+        <td>Название</td>
+        <td>Описание</td>
+        <td>Дата начала</td>
+        <td>Дата окончания</td>
+        <td>Дней осталось</td>
+    </tr>
     <tr th:each="discount : ${discounts}">
         <td><b th:text="${discount.getTitle()}">Title</b></td>
         <td><p th:text="${discount.getDescription()}">Description</p></td>
+        <td><p th:text="${discount.getStartDate()}">Start date</p></td>
+        <td><p th:text="${discount.getEndDate()}">End date</p></td>
+        <td>
+            <p th:if="${discount.daysLeft} > 0" th:text="${discount.getDaysLeft()}" >Days left</p>
+            <p th:if="${discount.daysLeft} == 0">Акция скрыта</p>
+        </td>
         <td>
             <form th:action="@{/admin/discounts/{id}/edit (id = ${discount.getDiscountId()})}">
                 <input type="submit" value="Изменить">
