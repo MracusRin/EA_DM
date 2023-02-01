@@ -33,8 +33,7 @@
 
 
 <br>
-<img th:if="${!product.getImages().isEmpty()}"
-     th:src="'/attachment/products/' + ${product.getImages().get(0).getTitle()}">
+<img th:each="image : ${product.getImages()}" th:src="'/attachment/products/' + ${image.getTitle()}">
 
 <hr>
 

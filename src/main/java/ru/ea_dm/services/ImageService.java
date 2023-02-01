@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -30,22 +31,25 @@ public class ImageService {
     private final String imageDir = "products";
 
     @Transactional
-    public void save(MultipartFile file, Product product) throws IOException {
+    public void save(List<MultipartFile> files, Product product) throws IOException {
         Product saveProduct = productRepository.findByTitle(product.getTitle()).get();
+        for (MultipartFile file : files) {
+            if (!file.isEmpty()) {
+                String fileName = "img_" + imageDir + "_" +
+                        file.getOriginalFilename().toLowerCase().replaceAll(" ", "-");
+                Path savePath = Paths.get(uploadPath + "/" + imageDir + "/" + fileName);
 
-        String fileName = "img_" + imageDir + "_" +
-                file.getOriginalFilename().toLowerCase().replaceAll(" ", "-");
-        Path savePath = Paths.get(uploadPath + "/" + imageDir + "/" + fileName);
-
-        Image image = Image.builder()
-                .title(fileName)
-                .downloadLink(savePath.toString())
-                .product(product)
-                .build();
-        saveToFs(file, savePath);
-        saveProduct.getImages().add(image);
-        imageRepository.save(image);
-        log.info("Image {} SAVE to Product: {}", product.getTitle(), fileName);
+                Image image = Image.builder()
+                        .title(fileName)
+                        .downloadLink(savePath.toString())
+                        .product(product)
+                        .build();
+                saveToFs(file, savePath);
+                saveProduct.getImages().add(image);
+                imageRepository.save(image);
+                log.info("Image {} SAVE to Product: {}", product.getTitle(), fileName);
+            }
+        }
     }
 
     @Transactional

@@ -13,6 +13,7 @@ import ru.ea_dm.util.ProductValidator;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -35,14 +36,14 @@ public class AdminProductController {
 
     @PostMapping
     public String create(@ModelAttribute("product") @Valid Product product,
-                         @RequestParam("image") MultipartFile image,
+                         @RequestParam("files") List<MultipartFile> files,
                          BindingResult bindingResult) throws IOException {
         productValidator.validate(product, bindingResult);
         if (bindingResult.hasErrors()) {
             return "admin/products/new";
         } else {
             productService.save(product);
-            imageService.save(image, product);
+            imageService.save(files, product);
             return "redirect:/admin/products";
         }
     }
