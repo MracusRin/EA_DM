@@ -17,6 +17,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -35,8 +36,8 @@ public class ImageService {
         Product saveProduct = productRepository.findByTitle(product.getTitle()).get();
         for (MultipartFile file : files) {
             if (!file.isEmpty()) {
-                String fileName = "img_" + imageDir + "_" +
-                        file.getOriginalFilename().toLowerCase().replaceAll(" ", "-");
+                String fileName = ("img_" + product.getTitle() + "_" + UUID.randomUUID())
+                        .toLowerCase().replaceAll(" ", "_");
                 Path savePath = Paths.get(uploadPath + "/" + imageDir + "/" + fileName);
 
                 Image image = Image.builder()
