@@ -40,7 +40,7 @@ public class ImageService {
                 Path savePath = Paths.get(uploadPath + "/" + imageDir + "/" + fileName);
 
                 Image image = Image.builder()
-                        .title(fileName)
+                        .name(fileName)
                         .downloadLink(savePath.toString())
                         .product(product)
                         .build();
@@ -58,7 +58,7 @@ public class ImageService {
         product.getImages().remove(image);
         imageRepository.delete(image);
         deleteFromFs(image);
-        log.info("Image {} DELETED fro Product: {}", image.getTitle(), image.getProduct());
+        log.info("Image {} DELETED fro Product: {}", image.getName(), image.getProduct());
     }
 
     private void saveToFs(MultipartFile file, Path path) throws IOException {
@@ -74,7 +74,7 @@ public class ImageService {
         try {
             Files.delete(path);
         } catch (IOException e) {
-            log.error("Image {} not found. Nothing to delete", image.getTitle());
+            log.error("Image {} not found. Nothing to delete", image.getName());
         }
     }
 }

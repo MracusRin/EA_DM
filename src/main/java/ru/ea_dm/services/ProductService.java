@@ -55,7 +55,7 @@ public class ProductService {
         try {
             Files.delete(path);
         } catch (IOException e) {
-            log.error("Image {} not found. Nothing to delete", image.getTitle());
+            log.error("Image {} not found. Nothing to delete", image.getName());
         }
     }
 

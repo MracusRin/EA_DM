@@ -32,7 +32,7 @@
 </table>
 <br>
 
-<img width="200" th:each="image : ${product.getImages()}" th:src="'/attachment/products/' + ${image.getTitle()}"
+<img width="200" th:each="image : ${product.getImages()}" th:src="'/attachment/products/' + ${image.getName()}"
      th:alt="${product.getTitle()}" th:title="${product.getTitle()}">
 <hr>
 

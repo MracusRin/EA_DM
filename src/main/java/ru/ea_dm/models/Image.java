@@ -20,17 +20,14 @@ public class Image {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long imageId;
 
-    @Column(name = "title")
-    private String title;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "upload_date")
     private LocalDateTime uploadDate;
 
     @Column(name = "download_link")
     private String downloadLink;
-
-    @Column(name = "is_preview_image")
-    private boolean isPreviewImage;
 
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     @JoinColumn(name = "product_id", referencedColumnName = "product_id")

@@ -17,7 +17,7 @@
             <a th:href="@{/products/{id} (id = ${product.getProductId()})}">
                 <img width="50" height="50"
                      th:if="${!product.getImages().isEmpty()}"
-                     th:src="'/attachment/products/' + ${product.getImages().get(0).getTitle()}"
+                     th:src="'/attachment/products/' + ${product.getImages().get(0).getName()}"
                      th:alt="${product.getTitle()}"
                      th:title="${product.getTitle()}">
             </a>
