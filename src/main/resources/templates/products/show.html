@@ -28,8 +28,9 @@
 </table>
 
 <br>
-<img th:if="${!product.getImages().isEmpty()}"
-     th:src="'/attachment/products/' + ${product.getImages().get(0).getTitle()}">
+<img width="200" th:each="image : ${product.getImages()}" th:src="'/attachment/products/' + ${image.getTitle()}"
+     th:alt="${product.getTitle()}" th:title="${product.getTitle()}">
+
 
 <div th:insert="blocks/footer :: footer"></div>
 </body>

@@ -30,11 +30,10 @@
         <td><p th:text="${product.getCreatedAt()}" id="created_at">Дата добавления</p></td>
     </tr>
 </table>
-
-
 <br>
-<img th:each="image : ${product.getImages()}" th:src="'/attachment/products/' + ${image.getTitle()}">
 
+<img width="200" th:each="image : ${product.getImages()}" th:src="'/attachment/products/' + ${image.getTitle()}"
+     th:alt="${product.getTitle()}" th:title="${product.getTitle()}">
 <hr>
 
 <form th:method="DELETE" th:action="@{/admin/products/{id} (id = ${product.getProductId()})}">

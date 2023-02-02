@@ -10,7 +10,8 @@
 
 <h1>Product page</h1>
 
-<table th:each="product : ${products}">
+<h3 th:if="${products.isEmpty()}">Товаров пока нет</h3>
+<table th:unless="${products.isEmpty()}" th:each="product : ${products}">
     <tr th:if="${product.isActive()}">
         <td>
             <a th:href="@{/products/{id} (id = ${product.getProductId()})}">
