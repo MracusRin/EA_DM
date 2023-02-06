@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 
@@ -25,11 +26,12 @@ public class Discount {
     private String description;
 
     @Column(name = "start_date")
-    @DateTimeFormat(pattern = "dd.MM.yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
 
     @Column(name = "end_date")
-    @DateTimeFormat(pattern = "dd.MM.yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Future(message = "Дата окончания акции должны быть в будущем")
     private LocalDate endDate;
 
     @Transient

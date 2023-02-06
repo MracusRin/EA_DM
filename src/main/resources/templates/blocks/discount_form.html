@@ -11,12 +11,12 @@
   <br>
 
   <label for="start_date">Дата начала акции</label>
-  <input type="text" th:field="*{startDate}" id="start_date">
+  <input type="date" th:field="*{startDate}" id="start_date">
   <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{startDate}">Show error</div>
   <br>
 
   <label for="end_date">Дата окончания акции</label>
-  <input type="text" th:field="*{endDate}" id="end_date">
+  <input type="date" th:field="*{endDate}" id="end_date">
   <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{endDate}">Show error</div>
   <br>
 
