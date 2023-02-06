@@ -4,14 +4,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.ea_dm.models.Image;
 import ru.ea_dm.models.Product;
 import ru.ea_dm.repositories.ProductRepository;
+import ru.ea_dm.util.ImageFileSystemUtil;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +17,7 @@ import java.util.Optional;
 @Transactional(readOnly = true)
 public class ProductService {
     private final ProductRepository productRepository;
+    private final ImageFileSystemUtil imageFileSystemUtil;
 
     public List<Product> findAll() {
         return productRepository.findAll();
@@ -44,19 +41,9 @@ public class ProductService {
     @Transactional
     public void delete(Long id) {
         Product product = findById(id);
-        product.getImages().forEach(this::deleteProductImages);
+        product.getImages().forEach(imageFileSystemUtil::deleteFromFs);
         productRepository.deleteById(id);
         log.info("Product {} DELETED", product.getTitle());
-    }
-
-    private void deleteProductImages(Image image) {
-        // TODO: убрать дублирование кода при удалении Image
-        Path path = Paths.get(image.getDownloadLink());
-        try {
-            Files.delete(path);
-        } catch (IOException e) {
-            log.error("Image {} not found. Nothing to delete", image.getName());
-        }
     }
 
 }
