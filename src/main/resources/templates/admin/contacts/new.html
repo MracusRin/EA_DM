@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New contact</title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="header" th:insert="blocks/header :: header"></div>
+
+<h1>New contact</h1>
+
+<form th:method="POST" th:action="@{/admin/contacts}" th:object="${contact}">
+    <label for="name">Название</label>
+    <input type="text" th:field="*{name}" id="name">
+    <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{name}">Show input error</div>
+    <br>
+
+    <label for="link">Ссылка</label>
+    <input type="text" th:field="*{link}" id="link">
+    <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{link}">Show input error</div>
+    <br>
+
+    <label for="active">Показывать на сайте:</label>
+    <input type="checkbox" name="active" th:checked="*{active}" id="active">
+    <br>
+
+    <input type="submit" value="Сохранить">
+</form>
+
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

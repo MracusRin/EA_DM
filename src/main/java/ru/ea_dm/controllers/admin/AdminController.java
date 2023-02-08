@@ -1,4 +1,4 @@
-package ru.ea_dm.controllers;
+package ru.ea_dm.controllers.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +10,6 @@ public class AdminController {
 
     @GetMapping("/main")
     public String index() {
-        return "/admin/main";
+        return "admin/main";
     }
 }

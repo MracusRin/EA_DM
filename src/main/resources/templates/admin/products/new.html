@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Create</title>
-    <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
 </head>
 <body>
-<div class="header" th:insert="/blocks/header :: header"></div>
+<div class="header" th:insert="blocks/header :: header"></div>
 
-<h2>Creating product page</h2>
+<h1>Creating product page</h1>
 
-<form th:method="POST" th:action="@{/product}" th:object="${product}" enctype="multipart/form-data">
+<form th:method="POST" th:action="@{/admin/products}" th:object="${product}" enctype="multipart/form-data">
     <label for="title">Название</label>
     <input type="text" th:field="*{title}" id="title">
     <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{title}">Show title error</div>
@@ -36,6 +36,6 @@
     <button type="submit">Добавить</button>
 </form>
 
-<div th:insert="/blocks/footer :: footer"></div>
+<div th:insert="blocks/footer :: footer"></div>
 </body>
 </html>

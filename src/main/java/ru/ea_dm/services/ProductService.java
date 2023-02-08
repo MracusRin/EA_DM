@@ -30,8 +30,9 @@ public class ProductService {
         return productRepository.findByTitle(title);
     }
 
-    public Optional<Product> findById(Long id) {
-        return productRepository.findById(id);
+    public Product findById(Long id) {
+        Optional<Product> product = productRepository.findById(id);
+        return product.orElseThrow(() -> new RuntimeException("Product not found"));
     }
 
     @Transactional
@@ -42,7 +43,7 @@ public class ProductService {
 
     @Transactional
     public void delete(Long id) {
-        Product product = findById(id).get();
+        Product product = findById(id);
         product.getImages().forEach(this::deleteProductImages);
         productRepository.deleteById(id);
         log.info("Product {} DELETED", product.getTitle());
@@ -54,7 +55,7 @@ public class ProductService {
         try {
             Files.delete(path);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            log.error("Image {} not found. Nothing to delete", image.getTitle());
         }
     }
 

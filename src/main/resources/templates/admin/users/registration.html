@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration new user</title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="header" th:insert="blocks/header :: header"></div>
+
+<h1>Registration user page</h1>
+
+<form th:method="POST" th:action="@{/admin/users}" th:object="${user}">
+
+    <!--    <div th:insert="blocks/user_form :: user_form"></div>-->
+
+    <label for="username">Set username</label>
+    <input type="text" th:field="*{username}" id="username">
+    <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{username}">Show username error</div>
+    <br>
+
+    <label for="email">Set email</label>
+    <input type="text" th:field="*{email}" id="email">
+    <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{email}">Show email error</div>
+    <br>
+
+    <label for="password">Set password</label>
+    <input type="password" th:field="*{password}" id="password">
+    <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{password}">Show password error</div>
+    <br>
+
+    <label for="role">Роль</label>
+    <input th:type="checkbox" th:name="roles"
+           th:each="role : ${roles}"
+           th:checked="${user.hasRole(role)}"
+           th:text="${role.getRoleName()}"
+           th:value="${role.name()}"
+           th:field="*{roles}"
+           id="role"
+    />
+    <hr>
+
+    <label for="active">Активность</label>
+    <input type="checkbox" name="active" th:checked="*{active}" id="active">
+    <br>
+
+    <input type="submit" value="Зарегистрировать">
+</form>
+
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

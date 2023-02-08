@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Login page</title>
-    <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
 </head>
 <body>
-<div class="header" th:insert="/blocks/header :: header"></div>
+<div class="header" th:insert="blocks/header :: header"></div>
 
 <h2>Login Page</h2>
 
@@ -26,6 +26,6 @@
     </div>
 </form>
 
-<div th:insert="/blocks/footer :: footer"></div>
+<div th:insert="blocks/footer :: footer"></div>
 </body>
 </html>

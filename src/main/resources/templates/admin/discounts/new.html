@@ -2,13 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>About</title>
+    <title>New discount</title>
     <link th:href="@{/styles/main.css}" rel="stylesheet"/>
 </head>
 <body>
 <div class="header" th:insert="blocks/header :: header"></div>
 
-<h1>About</h1>
+<h1>New discount</h1>
+
+<form th:method="POST" th:action="@{/admin/discounts}" th:object="${discount}">
+
+    <div th:insert="blocks/discount_form :: discount_form"></div>
+
+</form>
 
 <div th:insert="blocks/footer :: footer"></div>
 </body>

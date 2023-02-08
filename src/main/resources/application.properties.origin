@@ -10,4 +10,4 @@ spring.jpa.show-sql=true
 spring.servlet.multipart.max-file-size=20MB
 spring.servlet.multipart.max-request-size=20MB
 
-upload.productImage.path=src/main/resources/static/img/attachment
+upload.image.path=src/main/resources/static/images/attachment

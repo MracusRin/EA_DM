@@ -1,11 +1,11 @@
 @font-face {
-    font-family: Kapelka_New;
-    src: url("/../fonts/Kapelka-New-W03-Regular.woff") format("woff");
+    font-family: Kapelka New W03 Regular;
+    src: url("/../fonts/Kapelka New W03 Regular.otf") format("opentype");
 }
 
 @font-face {
-    font-family: Orelega;
-    src: url("/../fonts/OrelegaOne-Regular.woff") format("woff");
+    font-family: OrelegaOne-Regular;
+    src: url("/../fonts/OrelegaOne-Regular.ttf") format("truetype");
 }
 
 /* reset browser style */
@@ -35,10 +35,10 @@ img {
 }
 
 .logo {
-    font-size:42px;
+    font-size:40px;
     color: #292929;
     text-decoration: none;
-    font-family: Kapelka_New;
+    font-family: Kapelka New W03 Regular;
 }
 
 .h_container {
@@ -60,7 +60,7 @@ img {
     flex-wrap: nowrap;
     height: 100%;
     font-size: 20px;
-    font-family: Orelega;
+    font-family: OrelegaOne-Regular;
 }
 
 ul>li {
@@ -73,19 +73,4 @@ ul>li {
 }
 ul>.admin {
     padding-left: 5px;
-}
-
-.main {
-    display: flex;
-    justify-content: center;
-}
-
-.masage {
-    width: 1252px;
-    text-align: right;
-}
-
-.large {
-    font-size: 246px;
-    font-family: sans-serif;
 }

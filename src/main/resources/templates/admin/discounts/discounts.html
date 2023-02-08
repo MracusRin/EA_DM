@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Discounts</title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="header" th:insert="blocks/header :: header"></div>
+
+<h1>Admin discounts</h1>
+
+<table th:unless="${discounts.isEmpty()}">
+    <tr>
+        <td>Название</td>
+        <td>Описание</td>
+        <td>Дата начала</td>
+        <td>Дата окончания</td>
+        <td>Дней осталось</td>
+    </tr>
+    <tr th:each="discount : ${discounts}">
+        <td><b th:text="${discount.getTitle()}">Title</b></td>
+        <td><p th:text="${discount.getDescription()}">Description</p></td>
+        <td><p th:text="${discount.getStartDate()}">Start date</p></td>
+        <td><p th:text="${discount.getEndDate()}">End date</p></td>
+        <td>
+            <p th:if="${discount.daysLeft} > 0" th:text="${discount.getDaysLeft()}" >Days left</p>
+            <p th:if="${discount.daysLeft} == 0">Акция скрыта</p>
+        </td>
+        <td>
+            <form th:action="@{/admin/discounts/{id}/edit (id = ${discount.getDiscountId()})}">
+                <input type="submit" value="Изменить">
+            </form>
+        </td>
+        <td>
+            <form th:method="DELETE" th:action="@{/admin/discounts/{id} (id = ${discount.getDiscountId()})}">
+                <input type="submit" value="Удалить">
+            </form>
+        </td>
+    </tr>
+</table>
+<h3 th:if="${discounts.isEmpty()}">Акций пока нет</h3>
+<br>
+
+<form th:action="@{/admin/discounts/new}">
+    <input type="submit" value="Добавить акцию">
+</form>
+
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

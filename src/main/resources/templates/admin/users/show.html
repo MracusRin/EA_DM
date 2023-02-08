@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show users</title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="header" th:insert="blocks/header :: header"></div>
+
+<h1>Список пользователей</h1>
+
+<table>
+    <tr>
+        <td><p>ID</p></td>
+        <td><p>Имя</p></td>
+        <td><p>Email</p></td>
+        <td><p>Дата добавления</p></td>
+        <td><p>Активность</p></td>
+        <td><p>Роли</p></td>
+        <td><p>Изменить</p></td>
+        <td><p>Удалить</p></td>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td><span th:text="${user.getUserId()}" id="id">id</span></td>
+        <td><span th:text="${user.getUsername()}" id="title">Имя</span></td>
+        <td><span th:text="${user.getEmail()}" id="email">Email</span></td>
+        <td><span th:text="${user.getCreatedAt()}" id="created_at">Дата добавления</span></td>
+        <td><input type="checkbox" name="active" th:checked="*{user.active}" disabled id="active"></td>
+        <td><p th:each="role : ${user.getRoles()}" th:text="${role.getRoleName()}" id="role">Роли</p></td>
+        <td>
+            <form th:action="@{/admin/users/{id}/edit (id = ${user.getUserId()})}">
+                <button type="submit">Изменить</button>
+            </form>
+        </td>
+        <td>
+            <form th:method="DELETE" th:action="@{/admin/users/{id} (id = ${user.getUserId()})}">
+                <button type="submit">Удалить</button>
+            </form>
+        </td>
+    </tr>
+</table>
+<hr>
+
+<form th:action="@{/admin/users/registration}">
+    <button>Добавить нового пользователя</button>
+</form>
+
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

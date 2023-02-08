@@ -1,17 +1,17 @@
 <div class="h_container" th:fragment="header">
     <div class="h_left">
-      <p><a class="logo" title="На главную" th:href="@{/}">Ekaterina Aleekseenko</a></p>
+        <p><a class="logo" title="На главную" th:href="@{/}">Ekaterina Aleekseenko</a></p>
     </div>
     <div class="h_right">
-      <ul class="nav">
-        <li><a class="nav_link" th:href="@{/#}">Услуги</a></li>
-        <li><a class="nav_link" th:href="@{/news}">Акции</a></li>
-        <li><a class="nav_link" th:href="@{/about}">О нас</a></li>
-        <li><a class="nav_link" th:href="@{/product}">Продукция</a></li>
-        <li class="admin">
-          <!--  TODO: Админка, УДАЛТЬ ссылку по после окончания разработки!-->
-          <a class="admin" th:href="@{/admin/main}" style="color: red">(админка)</a>
-        </li>
-      </ul>
+        <ul class="nav">
+            <li><a class="nav_link" th:href="@{/#}">Услуги</a></li>
+            <li><a class="nav_link" th:href="@{/products}">Продукция</a></li>
+            <li><a class="nav_link" th:href="@{/discounts}">Акции</a></li>
+            <li><a class="nav_link" th:href="@{/about}">О нас</a></li>
+            <li class="admin">
+                <!--  TODO: Админка, УДАЛТЬ ссылку по после окончания разработки!-->
+                <a class="admin" th:href="@{/admin/main}" style="color: red">(админка)</a>
+            </li>
+        </ul>
     </div>
 </div>

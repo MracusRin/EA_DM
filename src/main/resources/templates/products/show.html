@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${product.getTitle()}">Product page</title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="header" th:insert="blocks/header :: header"></div>
+
+<table>
+    <tr>
+        <td><p>ID</p></td>
+        <td><p th:text="${product.getProductId()}" id="id">id</p></td>
+    </tr>
+    <tr>
+        <td><p>Название</p></td>
+        <td><p th:text="${product.getTitle()}" id="title">Название</p></td>
+    </tr>
+    <tr>
+        <td><p>Описание</p></td>
+        <td><p th:text="${product.getDescription()}" id="description">Описание</p></td>
+    </tr>
+    <tr>
+        <td>Цена</td>
+        <td><p th:text="${product.getPrice()} + ' руб'" id="price">Цена</p></td>
+    </tr>
+</table>
+
+<br>
+<img th:if="${!product.getImages().isEmpty()}"
+     th:src="'/attachment/products/' + ${product.getImages().get(0).getTitle()}">
+
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>
