@@ -1,11 +1,9 @@
-<div th:fragment="footer">
-    <footer>
-        <br>
-        <hr>
+<div class="f_container" th:fragment="footer">
+    <div class="f_left">
         <p th:each="contact : ${contactList}">
             <a th:if="${contact.isActive()}" th:href="${contact.getLink()}" th:text="${contact.getName()}" target="_blan"></a>
         </p>
-        <span>Footer</span>
-        <span>© EA_DM 2022–2023</span>
-    </footer>
+        <p>Footer</p>
+        <p>© EA_DM 2022–2023</p>
+    </div>
 </div>

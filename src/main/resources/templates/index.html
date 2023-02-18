@@ -5,19 +5,21 @@
     <title>Main</title>
     <link th:href="@{/styles/main.css}" rel="stylesheet"/>
 </head>
-<body>
+<body class="body">
 <header class="header" th:insert="blocks/header :: header"></header>
-
 <main class="main">
-    <div class="masage">
-        <h1 class="large">
-            Depil
-            <br>
-            Master
+    <div class="hero_block">
+        <h1 class="hb_large">
+            <b>МАСТЕР</b><br>
+            <b>ДЕПИЛЯЦИИ</b>
         </h1>
+        <h2 class="hb_small">
+            С медицинским образованием. Применяя только качественную косметику
+            и одноразовые материалы, подберет индивидуальный подход для вашей
+            кожи, что бы оставить вас без волос без боли и в отличном настроении.
+        </h2>
     </div>
 </main>
-
-<footer th:insert="blocks/footer :: footer"></footer>
+<footer class="footer" th:insert="blocks/footer :: footer"></footer>
 </body>
 </html>

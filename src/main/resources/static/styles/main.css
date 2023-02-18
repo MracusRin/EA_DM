@@ -34,18 +34,8 @@ img {
     height: auto;
 }
 
-.logo {
-    font-size:40px;
-    color: #292929;
-    text-decoration: none;
-    font-family: Kapelka;
-}
-
-.h_container {
-    display: flex;
-    justify-content: space-between;
-    width: 1252px;
-    height: 50px;
+body {
+    background: #F7B101;
 }
 
 .header {
@@ -54,12 +44,28 @@ img {
     height: 100%;
 }
 
+.h_container {
+    display: flex;
+    justify-content: left;
+    width: 1252px;
+    height: 50px;
+}
+
+.logo {
+    font-size:32px;
+    color: #292929;
+    /*color: #FFFFFF;*/
+    text-decoration: none;
+    font-family: Kapelka;
+}
+
 .nav {
     display: flex;
     align-items: center;
+    padding-bottom: 10px;
     flex-wrap: nowrap;
     height: 100%;
-    font-size: 20px;
+    font-size: 24px;
     font-family: OrelegaOne;
 }
 
@@ -68,9 +74,54 @@ ul>li {
 }
 
 .nav_link {
-    color: #292929;
+    color: #FFFFFF;
     text-decoration: none;
 }
 ul>.admin {
     padding-left: 5px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.hero_block {
+    flex-direction: column;
+    justify-content: left;
+    width: 1252px;
+    height: 100%;
+}
+
+.hb_large {
+    width: 512px;
+    margin-top: 40px;
+    font-family: 'Gemunu Libre';
+    font-size: 76px;
+    line-height: 70px;
+    color: #292929;
+}
+.hb_small {
+    width: 840px;
+    margin-top: 20px;
+    font-family: 'Gemunu Libre';
+    font-size: 26px;
+    line-height: 25px;
+    color: #FFFFFF;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #292929;
+    color: #FFFFFF;
+    height: 500px;
+}
+
+.f_container {
+    display: flex;
+    justify-content: left;
+    width: 1252px;
 }
