@@ -1,3 +1,5 @@
+/*Fonts*/
+
 @font-face {
     font-family: Kapelka;
     src: url("/../fonts/Kapelka-New-W03-Regular.woff") format("opentype");
@@ -5,7 +7,22 @@
 
 @font-face {
     font-family: OrelegaOne;
-    src: url("/../fonts/OrelegaOne-Regular.woff") format("truetype");
+    src: url("/../fonts/OrelegaOne-Regular.woff") format("opentype");
+}
+
+@font-face {
+    font-family: Changa;
+    src: url("/../fonts/Changa.woff") format("opentype");
+}
+
+@font-face {
+    font-family: Jura;
+    src: url("/../fonts/Jura.woff") format("opentype");
+}
+
+@font-face {
+    font-family: Philosopher_Regular;
+    src: url("/../fonts/Philosopher_Regular.woff") format("opentype");
 }
 
 /* reset browser style */
@@ -38,6 +55,8 @@ body {
     background: #F7B101;
 }
 
+/*Header*/
+
 .header {
     display: flex;
     justify-content: center;
@@ -46,17 +65,21 @@ body {
 
 .h_container {
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
     width: 1252px;
-    height: 50px;
+    height: 60px;
 }
 
 .logo {
-    font-size:32px;
+    font-size: 40px;
+    align-items: center;
     color: #292929;
-    /*color: #FFFFFF;*/
     text-decoration: none;
     font-family: Kapelka;
+    white-space: nowrap;
+}
+.logo:hover {
+    color: #FFFFFF;
 }
 
 .nav {
@@ -66,21 +89,65 @@ body {
     flex-wrap: nowrap;
     height: 100%;
     font-size: 24px;
-    font-family: OrelegaOne;
+    font-family: Jura;
+    font-weight: bold;
+    white-space: nowrap;
 }
 
-ul>li {
+li > .n_page:hover {
+    color: #292929;
+}
+
+li > .n_page {
     padding-left: 30px;
 }
 
-.nav_link {
+li > .l_icon {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.icon {
+    fill: white;
+}
+.icon:hover {
+    fill: #292929;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-wrap: nowrap;
+    height: 100%;
+    font-size: 24px;
+    font-family: Jura;
+    white-space: nowrap;
+}
+
+.n_page {
     color: #FFFFFF;
     text-decoration: none;
 }
-ul>.admin {
+
+.number {
+    color: #292929;
+    text-decoration: none;
+    font-family: Changa;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.number:hover {
+    color: #FFFFFF;
+}
+
+
+ul > .admin {
     padding-left: 5px;
 }
 
+/*Body*/
 .main {
     display: flex;
     justify-content: center;
@@ -95,21 +162,25 @@ ul>.admin {
 }
 
 .hb_large {
-    width: 512px;
-    margin-top: 40px;
-    font-family: 'Gemunu Libre';
+    width: 466px;
+    margin-top: 60px;
+    font-family: Philosopher_Regular;
     font-size: 76px;
     line-height: 70px;
     color: #292929;
 }
-.hb_small {
-    width: 840px;
+
+.hb_text {
+    width: 771px;
     margin-top: 20px;
-    font-family: 'Gemunu Libre';
+    font-family: Philosopher_Regular;
     font-size: 26px;
     line-height: 25px;
     color: #FFFFFF;
+    padding-bottom: 100px;
 }
+
+/*Footer*/
 
 .footer {
     display: flex;

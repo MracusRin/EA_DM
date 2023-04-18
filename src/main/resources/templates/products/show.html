@@ -31,6 +31,6 @@
 <img th:if="${!product.getImages().isEmpty()}"
      th:src="'/attachment/products/' + ${product.getImages().get(0).getTitle()}">
 
-<div th:insert="blocks/footer :: footer"></div>
+<div class="footer" th:insert="blocks/footer :: footer"></div>
 </body>
 </html>
