@@ -1,4 +1,4 @@
-<div class="f_container" th:fragment="footer">
+<div class="footer_container" th:fragment="footer">
     <div class="f_left">
         <p th:each="contact : ${contactList}">
             <a th:if="${contact.isActive()}" th:href="${contact.getLink()}" th:text="${contact.getName()}" target="_blan"></a>

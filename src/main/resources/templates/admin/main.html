@@ -10,13 +10,15 @@
 
 <h1>Admin page</h1>
 
+<a th:href="@{/admin/services}">Услуги</a>
+<br>
+<a th:href="@{/admin/discounts}">Акции</a>
+<br>
 <a th:href="@{/admin/products}">Продукция</a>
 <br>
 <a th:href="@{/admin/users}">Пользователи</a>
 <br>
 <a th:href="@{/admin/contacts}">Контакты</a>
-<br>
-<a th:href="@{/admin/discounts}">Акции</a>
 
 <hr>
 <form th:method="POST" th:action="@{/auth/logout}">

@@ -5,20 +5,137 @@
     <title>Main</title>
     <link th:href="@{/styles/main.css}" rel="stylesheet"/>
 </head>
-<body class="body">
+<body>
 <header class="header" th:insert="blocks/header :: header"></header>
 <main class="main">
-    <div class="hero_block">
-        <h1 class="hb_large">
-            <b>МАСТЕР</b><br>
-            <b>ДЕПИЛЯЦИИ</b>
-        </h1>
-        <p class="hb_text">
-            С медицинским образованием. Применяя только качественную косметику
-            и одноразовые материалы, подберет индивидуальный подход для вашей
-            кожи, что бы оставить вас без волос без боли<br>
-            и в отличном настроении!
-        </p>
+    <div class="main_container">
+        <div class="main_title">
+            <h1 class="m_title">
+                мастер<br>
+                депиляции
+            </h1>
+            <h2 class="m_subtitle">
+                с медицинским образованием
+            </h2>
+        </div>
+        <ul class="main_list">
+            <li class="main_list_item list_item_1">
+				<span class="main_list_point">
+					<svg class="m_list_point" width="12" height="13" viewBox="0 0 12 13"
+                         fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect x="-1" y="6.5" width="10" height="10" rx="3" transform="rotate(-45 -1 6.5)"/>
+					</svg>
+					<span class="m_list_text">Индивидуальный подход</span>
+				</span>
+            </li>
+            <li class="main_list_item list_item_2">
+				<span class="main_list_point">
+					<svg class="m_list_point" width="12" height="13" viewBox="0 0 12 13"
+                         fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect x="-1" y="6.5" width="10" height="10" rx="3" transform="rotate(-45 -1 6.5)"/>
+					</svg>
+					<span class="m_list_text">Профессиональная косметика</span>
+				</span>
+            </li>
+            <li class="main_list_item list_item_3">
+				<span class="main_list_point">
+					<svg class="m_list_point" width="12" height="13" viewBox="0 0 12 13"
+                         fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect x="-1" y="6.5" width="10" height="10" rx="3" transform="rotate(-45 -1 6.5)"/>
+					</svg>
+					<span class="m_list_text">Только одноразовые материалы</span>
+				</span>
+            </li>
+            <li class="main_list_item list_item_4">
+	            <span class="main_list_point">
+		            <svg class="m_list_point" width="12" height="13" viewBox="0 0 12 13"
+                         fill="none" xmlns="http://www.w3.org/2000/svg">
+			            <rect x="-1" y="6.5" width="10" height="10" rx="3" transform="rotate(-45 -1 6.5)"/>
+		            </svg>
+		            <span class="m_list_text">Без лишней боли и неприятных ощущений</span>
+	            </span>
+            </li>
+        </ul>
+    </div>
+    <div class="main_slider">
+        <div class="main_slider_title">
+	        <span class="m_slider_title">
+		        тренды сезона
+	        </span>
+        </div>
+        <div class="main_slider_trend">
+            <div class="main_slider_arrow_left">
+                <svg class="s_arrow_left" width="50" height="51" viewBox="0 0 50 51"
+                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 26.5938C49.7371 27.7235 49.3763 28.7882 48.6449 29.661C47.6861 30.8058 46.5439 31.5419 45.1362 31.5626C42.4029 31.604 39.6683 31.5861 36.9349 31.5861C31.6468 31.5888 26.3574 31.5861 21.0693 31.5861C20.9225 31.5861 20.7758 31.5778 20.6302 31.593C20.5581 31.6012 20.4884 31.6537 20.4174 31.6855C20.4541 31.7628 20.481 31.8498 20.5312 31.9147C20.6143 32.0266 20.7122 32.126 20.8039 32.2296C23.1386 34.8672 25.4879 37.4911 27.8054 40.1495C29.8723 42.5206 29.9811 46.049 28.1051 48.5513C26.1581 51.1475 22.6139 51.4362 20.36 49.1796C20.1777 48.9974 20.0041 48.8026 19.8316 48.6079C13.4342 41.3841 7.03685 34.1602 0.640687 26.9336C0.480477 26.7527 0.32149 26.5635 0.193078 26.3549C-0.0649703 25.9337 -0.0637474 25.4891 0.193078 25.0665C0.311706 24.8718 0.458464 24.695 0.606444 24.5265C7.03685 17.2612 13.4709 10.0015 19.8977 2.73064C20.9017 1.5941 22.0746 0.916037 23.4969 0.73513C26.3856 0.36641 29.24 3.07864 29.4075 6.36674C29.5078 8.33877 28.9489 10.0028 27.7064 11.3962C25.3864 13.9994 23.0774 16.6163 20.7684 19.2319C20.6363 19.3824 20.5336 19.5661 20.4174 19.7346C20.6021 19.7663 20.788 19.8271 20.9727 19.8271C28.8156 19.8312 36.6598 19.8395 44.5027 19.8229C45.9324 19.8202 47.1945 20.2372 48.2646 21.3351C49.084 22.1761 49.6294 23.1939 49.8838 24.4105C49.9132 24.5514 49.9596 24.6881 49.9988 24.8276V26.5925L50 26.5938Z"
+                    />
+                </svg>
+            </div>
+            <div class="slider_card">
+                <div class="s_card s_card_1"></div>
+                <div class="s_card s_card_2"></div>
+                <div class="s_card s_card_3"></div>
+                <div class="s_card s_card_4"></div>
+            </div>
+            <div class="main_slider_arrow_right">
+                <svg class="s_arrow_right" width="50" height="51" viewBox="0 0 50 51"
+                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 26.0313C49.7639 26.3571 49.5499 26.7077 49.2881 27.0032C42.9044 34.2179 36.5133 41.4229 30.1332 48.6404C29.1167 49.7904 27.9376 50.4862 26.4955 50.6684C23.61 51.0343 20.7539 48.3132 20.5912 45.0261C20.4934 43.0533 21.0573 41.3926 22.2988 40.001C24.6436 37.3724 26.975 34.7301 29.3076 32.0891C29.4152 31.9676 29.4886 31.8061 29.5779 31.6625C29.4238 31.6335 29.2696 31.5783 29.1155 31.5783C21.2371 31.5741 13.3598 31.5659 5.48135 31.5824C4.05024 31.5852 2.81238 31.1296 1.71764 30.068C-0.256561 28.1518 -0.588041 24.4851 1.03144 22.1823C2.17389 20.5588 3.63925 19.805 5.48502 19.8119C13.2656 19.8382 21.045 19.823 28.8256 19.823C28.9553 19.823 29.0874 19.834 29.2158 19.8188C29.3381 19.805 29.458 19.7622 29.5791 19.7318C29.5118 19.6145 29.4605 19.4806 29.3748 19.384C28.1468 17.9896 26.9138 16.6008 25.6833 15.2106C24.487 13.859 23.2675 12.5323 22.1018 11.1476C20.645 9.41782 20.2145 7.34286 20.8248 5.07739C21.4364 2.8064 22.8394 1.3734 24.8968 0.858458C26.6814 0.411163 28.2813 0.931627 29.6696 2.26799C29.8922 2.48198 30.0953 2.72219 30.302 2.95688C36.6319 10.1012 42.9631 17.2455 49.2881 24.3953C49.5499 24.6908 49.7639 25.0414 50 25.3672V26.0285V26.0313Z"
+                    />
+                </svg>
+            </div>
+        </div>
+        <ul class="main_slider_sublist">
+            <li class="main_slider_list slider_list_item_1"><span class="main_slider_list_point">
+                <span class="main_slider_list_point">
+                    <svg class="m_slider_list_point" width="10" height="5" viewBox="0 0 10 5"
+                         fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 4.23376C0 2.02463 1.79086 0.233765 4 0.233765L10 0.233765C10 2.4429 8.20914 4.23376 6 4.23376H0Z"
+                        />
+                    </svg>
+                    <span class="m_slider_list_text">
+                        Весна - это, когда хочется чего-то свеженького?!
+                    </span>
+                </span>
+            </span>
+            </li>
+            <li class="main_slider_list slider_list_item_2">
+                <span class="main_slider_list_point">
+                    <svg class="m_slider_list_point"
+                         width="10" height="5" viewBox="0 0 10 5"
+                         fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 4.23376C0 2.02463 1.79086 0.233765 4 0.233765L10 0.233765C10 2.4429 8.20914 4.23376 6 4.23376H0Z"/>
+                    </svg>
+                    <span class="m_slider_list_text">
+                        Например, свежей, гладкой, нежной кожи без волос?
+                    </span>
+                </span>
+            </li>
+            <li class="main_slider_list slider_list_item_3">
+                <span class="main_slider_list_point">
+                    <svg class="m_slider_list_point"
+                         width="10" height="5" viewBox="0 0 10 5"
+                         fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 4.23376C0 2.02463 1.79086 0.233765 4 0.233765L10 0.233765C10 2.4429 8.20914 4.23376 6 4.23376H0Z"/>
+                    </svg>
+                    <span class="m_slider_list_text">
+                        Для вас самые лучшие предложения в этом сезоне!
+                    </span>
+                </span>
+            </li>
+            <li class="main_slider_list slider_list_item_4">
+                <span class="main_slider_list_point">
+                    <svg class="m_slider_list_point"
+                         width="10" height="5" viewBox="0 0 10 5"
+                         fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 4.23376C0 2.02463 1.79086 0.233765 4 0.233765L10 0.233765C10 2.4429 8.20914 4.23376 6 4.23376H0Z"/>
+                    </svg>
+                    <span class="m_slider_list_text">
+                        От мастера депиляции Екатерины Алексеенко!
+                    </span>
+                </span>
+            </li>
+        </ul>
     </div>
 </main>
 <footer class="footer" th:insert="blocks/footer :: footer"></footer>
