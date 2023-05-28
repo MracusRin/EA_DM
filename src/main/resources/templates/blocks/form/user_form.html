@@ -22,12 +22,13 @@
            th:text="${role.getRoleName()}"
            th:value="${role.name()}"
            th:field="*{roles}"
-           id="role"
-    />
-    <br>
+           id="role"/>
+    <hr>
 
     <label for="active">Активность</label>
     <input type="checkbox" name="active" th:checked="*{active}" id="active">
-    <hr>
+    <br>
+
+    <input type="submit" value="Сохранить">
 
 </div>
