@@ -51,7 +51,7 @@ public class AdminServiceImplController {
     public String edit(@ModelAttribute("service") ServiceIml service,
                        @PathVariable("id") Long id) {
         service.setServiceId(id);
-        serviceImplService.update(service, id);
+        serviceImplService.update(service);
         return "redirect:/admin/services";
     }
 
