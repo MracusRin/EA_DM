@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${service.getTitle()}">Service page</title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="header" th:insert="blocks/header :: header"></div>
+
+<table>
+    <tr>
+        <td><p>ID</p></td>
+        <td><p th:text="${service.getServiceId()}" id="id">id</p></td>
+    </tr>
+    <tr>
+        <td><p>Название</p></td>
+        <td><p th:text="${service.getTitle()}" id="title">Название</p></td>
+    </tr>
+    <tr>
+        <td><p>Описание</p></td>
+        <td><p th:text="${service.getDescription()}" id="description">Описание</p></td>
+    </tr>
+    <tr>
+        <td>Цена</td>
+        <td><p th:text="${service.getPrice()} + ' руб'" id="price">Цена</p></td>
+    </tr>
+</table>
+<br>
+
+<div class="footer" th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

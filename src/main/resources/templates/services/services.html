@@ -10,6 +10,28 @@
 
 <h1>Services</h1>
 
+<table th:unless="${services.isEmpty()}" th:each="service : ${services}">
+    <tr th:if="${service.isActive()}">
+        <td>
+<!--            <a th:href="@{/services/{id} (id = ${service.getServiceId()})}">-->
+<!--                <img width="50" height="50"-->
+<!--                     th:if="${!service.getImages().isEmpty()}"-->
+<!--                     th:src="'/attachment/products/' + ${service.getImages().get(0).getTitle()}"-->
+<!--                     th:alt="${service.getTitle()}"-->
+<!--                     th:title="${service.getTitle()}">-->
+<!--            </a>-->
+        </td>
+        <td>
+            <a th:href="@{/services/{id} (id = ${service.getServiceId()})}"
+               th:text="${service.getTitle()}">Product link</a>
+        </td>
+        <td th:text="${service.getPrice()} + ' руб'">
+            Price
+        </td>
+    </tr>
+</table>
+<h3 th:if="${services.isEmpty()}">Услуг пока нет</h3>
+
 <div class="footer" th:insert="blocks/footer :: footer"></div>
 </body>
 </html>

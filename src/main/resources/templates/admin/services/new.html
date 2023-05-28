@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="header" th:insert="blocks/header :: header"></div>
+
+<h1>Creating service page</h1>
+
+<form th:method="POST" th:action="@{/admin/services}" th:object="${service}" enctype="multipart/form-data">
+
+    <div th:insert="blocks/service_form :: service_form"></div>
+
+</form>
+
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Изменение ' + ${service.getTitle()}">Edit service page</title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div th:insert="blocks/header :: header"></div>
+
+<h1 th:text="'Cahange ' + ${service.getTitle() + ' page'}">Changing product page</h1>
+
+<form th:method="PATCH" th:action="@{/admin/services/{id} (id = ${service.getServiceId()})}" th:object="${service}">
+
+    <div th:insert="blocks/service_form :: service_form"></div>
+
+</form>
+
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

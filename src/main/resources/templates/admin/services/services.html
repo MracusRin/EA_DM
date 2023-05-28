@@ -10,6 +10,48 @@
 
 <h1>Admin services</h1>
 
+<table th:unless="${services.isEmpty()}">
+    <tr>
+        <td>Превью</td>
+        <td>Называние</td>
+        <td>Цена</td>
+        <td>В продаже</td>
+    </tr>
+    <tr th:each="service : ${services}">
+        <td>
+            <!--            <a th:href="@{/admin/services/{id} (id = ${service.getServiceId()})}">-->
+            <!--                <img width="50" height="50"-->
+            <!--                     th:if="${!service.getImages().isEmpty()}"-->
+            <!--                     th:src="'/attachment/products/' + ${service.getImages().get(0).getTitle()}"-->
+            <!--                     th:alt="${service.getTitle()}"-->
+            <!--                     th:title="${service.getTitle()}">-->
+            <!--            </a>-->
+        </td>
+        <td>
+            <a th:href="@{/admin/services/{id} (id = ${service.getServiceId()})}"
+               th:text="${service.getTitle()}">Service link</a>
+        </td>
+        <td th:text="${service.getPrice()} + ' руб'">Price</td>
+        <td><input type="checkbox" name="active" th:checked="*{service.active}" disabled id="active"></td>
+        <td>
+            <form th:action="@{/admin/services/{id}/edit (id = ${service.getServiceId()})}">
+                <button type="submit">Изменить</button>
+            </form>
+        </td>
+        <td>
+            <form th:method="DELETE" th:action="@{/admin/services/{id} (id = ${service.getServiceId()})}">
+                <button type="submit">Удалить</button>
+            </form>
+        </td>
+    </tr>
+</table>
+<h3 th:if="${services.isEmpty()}">Услуг пока нет</h3>
+<br>
+
+<form th:action="@{/admin/services/new}">
+    <button>Добавить новую услугу</button>
+</form>
+
 <div th:insert="blocks/footer :: footer"></div>
 </body>
 </html>

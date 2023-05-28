@@ -1,0 +1,24 @@
+<div th:fragment="service_form">
+
+    <label for="title">Название</label>
+    <input type="text" th:field="*{title}" id="title">
+    <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{title}">Show title error</div>
+    <br>
+
+    <label for="description">Описание</label>
+    <input type="text" th:field="*{description}" id="description">
+    <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{description}">Show description error</div>
+    <br>
+
+    <label for="price">Цена</label>
+    <input type="text" th:field="*{price}" id="price">
+    <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{price}">Show price error</div>
+    <br>
+
+    <label for="active">В продаже</label>
+    <input type="checkbox" name="active" th:checked="*{active}" id="active">
+    <br>
+
+    <button type="submit">Сохранить</button>
+
+</div>

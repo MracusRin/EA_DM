@@ -10,7 +10,7 @@
 
 <h1>Product page</h1>
 
-<table th:each="product : ${products}">
+<table th:unless="${products.isEmpty()}" th:each="product : ${products}">
     <tr th:if="${product.isActive()}">
         <td>
             <a th:href="@{/products/{id} (id = ${product.getProductId()})}">
@@ -30,6 +30,7 @@
         </td>
     </tr>
 </table>
+<h3 th:if="${products.isEmpty()}">Товаров пока нет</h3>
 
 <div class="footer" th:insert="blocks/footer :: footer"></div>
 </body>
