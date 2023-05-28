@@ -1,4 +1,4 @@
-<div th:fragment="discount_form">
+<div th:fragment="product_form">
 
   <label for="title">Название</label>
   <input type="text" th:field="*{title}" id="title">
@@ -13,6 +13,13 @@
   <label for="price">Цена</label>
   <input type="text" th:field="*{price}" id="price">
   <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{price}">Show price error</div>
+  <br>
+
+  <label for="active">В продаже</label>
+  <input type="checkbox" name="active" th:checked="*{active}" id="active">
+  <br>
+
+  <input type="file" name="image" accept="image/*">
   <br>
 
   <button type="submit">Сохранить</button>
