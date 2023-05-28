@@ -8,6 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface ContactRepository extends JpaRepository<Contact, Integer> {
-    Optional<Contact> findByLink(String link);
-
+    Optional<Contact> findByName(String name);
 }

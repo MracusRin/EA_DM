@@ -6,7 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.ea_dm.models.Contact;
 import ru.ea_dm.repositories.ContactRepository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -14,10 +13,6 @@ import java.util.Optional;
 @Transactional(readOnly = true)
 public class ContactService {
     private final ContactRepository contactRepository;
-
-    public List<Contact> findAll() {
-        return contactRepository.findAll();
-    }
 
     @Transactional
     public void save(Contact contact) {
@@ -28,17 +23,13 @@ public class ContactService {
         return contactRepository.findById(id);
     }
 
-    public Optional<Contact> findByLink(String link) {
-        return contactRepository.findByLink(link);
-    }
-
     @Transactional
     public void update(Contact contact) {
+        contact.setName("default");
         contactRepository.save(contact);
     }
 
-    @Transactional
-    public void delete(int id) {
-        contactRepository.deleteById(id);
+    public Optional<Contact> findByName(String name) {
+        return contactRepository.findByName(name);
     }
 }

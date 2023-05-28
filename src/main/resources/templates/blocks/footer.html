@@ -1,8 +1,12 @@
 <div class="footer_container" th:fragment="footer">
     <div class="f_left">
-        <p th:each="contact : ${contactList}">
-            <a th:if="${contact.isActive()}" th:href="${contact.getLink()}" th:text="${contact.getName()}" target="_blan"></a>
-        </p>
+        <p>Контакты:</p>
+        <a th:href="${contactList.getVk}" th:text="VK" target="_blan"></a>
+        <a th:href="${contactList.getTelegram}" th:text="Telegram" target="_blan"></a>
+        <a th:href="${contactList.getInstagram}" th:text="Instagremm" target="_blan"></a>
+        <a th:href="'tel:' + ${contactList.getPhone}" th:text="${contactList.getPhone}" target="_blan"></a>
+        <p th:text="${contactList.getAddress}"></p>
+
         <p>Footer</p>
         <p>© EA_DM 2022–2023</p>
     </div>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts</title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="header" th:insert="blocks/header :: header"></div>
+
+<h1>Contacts page</h1>
+
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Контакт</th>
+    </tr>
+    <tr>
+        <td><p>VK</p></td>
+        <td><a th:unless="${contact.getVk().isEmpty()}"
+               th:href="${contact.getVk()}" th:text="${contact.getVk()}" target="_blan">Контакт</a>
+            <p style="color: red" th:if="${contact.getVk().isEmpty()}">ссылка не задана</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p>Telegram</p></td>
+        <td><a th:unless="${contact.getTelegram().isEmpty()}"
+               th:href="${contact.getTelegram()}" th:text="${contact.getTelegram()}" target="_blan">Контакт</a>
+            <p style="color: red" th:if="${contact.getTelegram().isEmpty()}">ссылка не задана</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p>Instagram</p></td>
+        <td><a th:unless="${contact.getInstagram().isEmpty()}"
+               th:href="${contact.getInstagram()}" th:text="${contact.getInstagram()}" target="_blan">Контакт</a>
+            <p style="color: red" th:if="${contact.getInstagram().isEmpty()}">ссылка не задана</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p>Телефон</p></td>
+        <td><a th:unless="${contact.getPhone().isEmpty()}"
+               th:href="'tel:' + ${contact.getPhone()}" th:text="${contact.getPhone()}" target="_blan">Контакт</a>
+            <p style="color: red" th:if="${contact.getPhone().isEmpty()}">номер не задан</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p>Адрес</p></td>
+        <td><p th:unless="${contact.getAddress().isEmpty()}"
+               th:text="${contact.getAddress()}">Контакт</p>
+            <p style="color: red" th:if="${contact.getAddress().isEmpty()}">адрес не задан</p>
+        </td>
+    </tr>
+</table>
+
+<form th:action="@{/admin/contacts/{id}/edit (id = ${contact.getContactId()})}">
+    <input type="submit" value="Изменить">
+</form>
+
+<hr>
+
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

@@ -11,21 +11,32 @@
 <h1 th:text="'Edit ' + ${contact.getName}">Edit contact</h1>
 
 <form th:method="PATCH" th:action="@{/admin/contacts/{id} (id = ${contact.getContactId()})}" th:object="${contact}">
-    <label for="name">Название</label>
-    <input type="text" th:field="*{name}" id="name">
+    <label for="VK">VK</label>
+    <input type="text" th:field="*{vk}" id="VK">
     <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{name}">Show input error</div>
     <br>
 
-    <label for="link">Ссылка</label>
-    <input type="text" th:field="*{link}" id="link">
-    <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{link}">Show input error</div>
+    <label for="telegram">Telegram</label>
+    <input type="text" th:field="*{telegram}" id="telegram">
+    <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{name}">Show input error</div>
     <br>
 
-    <label for="active">Показывать на сайте</label>
-    <input type="checkbox" name="active" th:checked="*{active}" id="active">
+    <label for="instagram">Instagram</label>
+    <input type="text" th:field="*{instagram}" id="instagram">
+    <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{name}">Show input error</div>
     <br>
 
-    <input type="submit" value="Изменить">
+    <label for="phone">Телефон</label>
+    <input type="text" th:field="*{phone}" id="phone">
+    <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{name}">Show input error</div>
+    <br>
+
+    <label for="address">Адрес</label>
+    <input type="text" th:field="*{address}" id="address">
+    <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{name}">Show input error</div>
+    <br>
+
+    <input type="submit" value="Сохранить">
 </form>
 
 <div th:insert="blocks/footer :: footer"></div>
