@@ -22,7 +22,7 @@ public class AdminUserController {
     @GetMapping
     public String showPage(Model model) {
         model.addAttribute("users", userService.findAll());
-        return "admin/users/show";
+        return "admin/users/users";
     }
 
     @GetMapping("/registration")
