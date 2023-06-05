@@ -26,6 +26,10 @@
         <td><p th:text="${service.getPrice()} + ' руб'" id="price">Цена</p></td>
     </tr>
     <tr>
+        <td>Пол</td>
+        <td><p th:each="role : ${service.getGenders()}" th:text="${role.getGenderName()}" id="role">Пол</p></td>
+    </tr>
+    <tr>
         <td>Дата добавления</td>
         <td><p th:text="${service.getCreatedAt()}" id="created_at">Дата добавления</p></td>
     </tr>

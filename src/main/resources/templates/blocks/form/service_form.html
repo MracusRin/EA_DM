@@ -19,6 +19,16 @@
     <input type="checkbox" name="active" th:checked="*{active}" id="active">
     <br>
 
+    <label for="role">Пол</label>
+    <input th:type="checkbox" th:name="genders"
+           th:each="gender : ${genders}"
+           th:checked="${service.hasGender(gender)}"
+           th:text="${gender.getGenderName()}"
+           th:value="${gender.name()}"
+           th:field="*{genders}"
+           id="role"/>
+    <br>
+
     <button type="submit">Сохранить</button>
 
 </div>

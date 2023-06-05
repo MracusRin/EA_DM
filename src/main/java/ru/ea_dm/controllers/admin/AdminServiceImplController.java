@@ -4,7 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.ea_dm.models.ServiceIml;
+import ru.ea_dm.models.ServiceImpl;
+import ru.ea_dm.models.enums.Gender;
 import ru.ea_dm.services.ServiceImplService;
 
 @Controller
@@ -20,13 +21,15 @@ public class AdminServiceImplController {
     }
 
     @GetMapping("/new")
-    public String createPage(@ModelAttribute("service") ServiceIml serviceIml) {
+    public String createPage(@ModelAttribute("service") ServiceImpl serviceImpl,
+                             Model model) {
+        model.addAttribute("genders", Gender.values());
         return "admin/services/new";
     }
 
     // TODO: Добавить валидацию создания сервиса
     @PostMapping
-    public String create(@ModelAttribute("service") ServiceIml service) {
+    public String create(@ModelAttribute("service") ServiceImpl service) {
         serviceImplService.save(service);
         return "redirect:/admin/services";
 
@@ -43,15 +46,16 @@ public class AdminServiceImplController {
     public String editPage(@PathVariable("id") Long id,
                            Model model) {
         model.addAttribute("service", serviceImplService.findById(id));
+        model.addAttribute("genders", Gender.values());
         return "admin/services/edit";
     }
 
     // TODO: Добавить валидацию редактирования сервиса
     @PatchMapping("/{id}")
-    public String edit(@ModelAttribute("service") ServiceIml service,
+    public String edit(@ModelAttribute("service") ServiceImpl service,
                        @PathVariable("id") Long id) {
         service.setServiceId(id);
-        serviceImplService.update(service);
+        serviceImplService.update(service, id);
         return "redirect:/admin/services";
     }
 
